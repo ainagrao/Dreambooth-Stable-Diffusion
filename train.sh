@@ -22,8 +22,9 @@ rm -rf ${training_images_folder}.ipynb_checkpoints
 rm -f ${training_images_folder}*
 
 # Download training images from gdrive url
-python dl_training_images $4 ${training_images_folder}/
+python dl_training_images.py $4 "${training_images_folder}"
 
+print("starting training..")
 python main.py \
  --base configs/stable-diffusion/v1-finetune_unfrozen.yaml \
  -t \
@@ -31,7 +32,7 @@ python main.py \
  --reg_data_root "${reg_data_root}" \
  -n "${project_name}" \
  --gpus 0, \
- --data_root "/workspace/Dreambooth-Stable-Diffusion/${training_images_folder}" \
+ --data_root "/workspace/Dreambooth-Stable-Diffusion/${training_images_folder}/512/" \
  --max_training_steps ${max_training_steps} \
  --class_word "${class_word}" \
  --token "${token}" \
