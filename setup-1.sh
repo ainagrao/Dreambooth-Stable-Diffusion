@@ -11,7 +11,10 @@ cd /workspace
 wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64.sh
 
 chmod +x Miniconda3-py38_4.12.0-Linux-x86_64.sh
-./Miniconda3-py38_4.12.0-Linux-x86_64.sh -b -p $HOME/miniconda3
+./Miniconda3-py38_4.12.0-Linux-x86_64.sh -b -u
+source ~/miniconda3/bin/activate
+
+# TODO -b -p $HOME/miniconda3
 
 
 # Notes: silent install with -b -p $HOME/miniconda3 did not work. i.e, conda not found after logout and login
