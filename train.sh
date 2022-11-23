@@ -17,14 +17,14 @@ token=$3 # "firstNameLastName"
 dataset="${class_word}_ddim"
 reg_data_root="/workspace/Dreambooth-Stable-Diffusion/regularization_images/${dataset}"
 
-training_images_folder="training_images/"
-rm -rf ${training_images_folder}.ipynb_checkpoints
-rm -f ${training_images_folder}*
+training_images_folder="training_images"
+rm -rf ${training_images_folder}/.ipynb_checkpoints
+rm -f ${training_images_folder}/*
 
 # Download training images from gdrive url
 python dl_training_images.py $4 "${training_images_folder}"
 
-print("starting training..")
+echo "starting training.."
 python main.py \
  --base configs/stable-diffusion/v1-finetune_unfrozen.yaml \
  -t \
@@ -32,7 +32,7 @@ python main.py \
  --reg_data_root "${reg_data_root}" \
  -n "${project_name}" \
  --gpus 0, \
- --data_root "/workspace/Dreambooth-Stable-Diffusion/${training_images_folder}/512/" \
+ --data_root "/workspace/Dreambooth-Stable-Diffusion/${training_images_folder}/" \
  --max_training_steps ${max_training_steps} \
  --class_word "${class_word}" \
  --token "${token}" \
