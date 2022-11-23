@@ -1,7 +1,7 @@
 # Training
 
 # This isn't used for training, just to help you remember what your trained into the model.
-project_name=$1 #picofnr
+project_name=$1 #picsofnr
 
 # MAX STEPS
 # How many steps do you want to train for?
@@ -17,7 +17,12 @@ token=$3 # "firstNameLastName"
 dataset="${class_word}_ddim"
 reg_data_root="/workspace/Dreambooth-Stable-Diffusion/regularization_images/${dataset}"
 
-rm -rf training_images/.ipynb_checkpoints
+training_images_folder="training_images/"
+rm -rf ${training_images_folder}.ipynb_checkpoints
+rm -f ${training_images_folder}*
+
+# Download training images from gdrive url
+python dl_training_images $4 ${training_images_folder}/
 
 python main.py \
  --base configs/stable-diffusion/v1-finetune_unfrozen.yaml \
@@ -26,8 +31,9 @@ python main.py \
  --reg_data_root "${reg_data_root}" \
  -n "${project_name}" \
  --gpus 0, \
- --data_root "/workspace/Dreambooth-Stable-Diffusion/training_images" \
+ --data_root "/workspace/Dreambooth-Stable-Diffusion/${training_images_folder}" \
  --max_training_steps ${max_training_steps} \
  --class_word "${class_word}" \
  --token "${token}" \
  --no-test
+

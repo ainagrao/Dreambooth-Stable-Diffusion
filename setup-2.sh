@@ -2,7 +2,7 @@
 cd /workspace
 
 cd Dreambooth-Stable-Diffusion; 
-git checkout devel
+# Notes we are already in devel; git checkout devel
 
 # Notes: use branch devel for bleeding edge changes
 

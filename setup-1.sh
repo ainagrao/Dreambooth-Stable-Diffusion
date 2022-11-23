@@ -39,6 +39,9 @@ mkdir -p regularization_images/person_ddim
 
 mv -v Stable-Diffusion-Regularization-Images-person_ddim/person_ddim/*.* regularization_images/person_ddim
 
+mkdir -p regularization_images/woman_ddim
+mv -v Stable-Diffusion-Regularization-Images-woman_ddim/woman_ddim/*.* regularization_images/woman_ddim
+
 mkdir training_images
 
 #TODO: move all commands above to a shell script
