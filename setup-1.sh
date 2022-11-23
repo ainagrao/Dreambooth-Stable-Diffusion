@@ -1,9 +1,13 @@
+# cd /workspace
+# # Notes: do everything in workspace
+
+# # OLD - git clone https://github.com/JoePenna/Dreambooth-Stable-Diffusion 
+# git clone https://github.com/ainagrao/Dreambooth-Stable-Diffusion.git
+# cd Dreambooth-Stable-Diffusion; 
+# git checkout devel
+
+
 cd /workspace
-# Notes: do everything in workspace
-
-# OLD - git clone https://github.com/JoePenna/Dreambooth-Stable-Diffusion 
-git clone https://github.com/ainagrao/Dreambooth-Stable-Diffusion.git
-
 wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64.sh
 
 chmod +x Miniconda3-py38_4.12.0-Linux-x86_64.sh
@@ -14,13 +18,9 @@ chmod +x Miniconda3-py38_4.12.0-Linux-x86_64.sh
 
 # * Logout and login again
 
-cd /workspace
-
-cd Dreambooth-Stable-Diffusion; 
-git checkout devel
-
 # Notes: use branch devel for bleeding edge changes
 
+cd Dreambooth-Stable-Diffusion
 conda env create -f environment.yaml
 # Notes: This takes time. TODO - how to move this to docker. How much time does it take?
 
