@@ -1,4 +1,4 @@
-import argparse, os, sys, glob
+import argparse, os, sys, glob, uuid
 import torch
 import numpy as np
 from omegaconf import OmegaConf
@@ -272,7 +272,7 @@ def main():
                     grid = rearrange(grid, 'n b c h w -> (n b) c h w')
                     
                     for i in range(grid.size(0)):
-                        save_image(grid[i, :, :, :], os.path.join(outpath,opt.prompt+'_{}.png'.format(i)))
+                        save_image(grid[i, :, :, :], os.path.join(outpath,str(uuid.uuid4())+'_{}.png'.format(i)))
                     grid = make_grid(grid, nrow=n_rows)
 
                     # to image
