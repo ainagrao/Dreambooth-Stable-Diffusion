@@ -45,6 +45,14 @@ git clone https://github.com/djbielejeski/Stable-Diffusion-Regularization-Images
 mkdir -p regularization_images/woman_ddim
 mv -v Stable-Diffusion-Regularization-Images-woman_ddim/woman_ddim/*.* regularization_images/woman_ddim
 
+git clone https://github.com/djbielejeski/Stable-Diffusion-Regularization-Images-man_euler.git
+mkdir -p regularization_images/man_euler
+mv -v Stable-Diffusion-Regularization-Images-man_euler/man_euler/*.* regularization_images/man_euler
+
+git clone https://github.com/djbielejeski/Stable-Diffusion-Regularization-Images-man_unsplash.git
+mkdir -p regularization_images/man_unsplash
+mv -v Stable-Diffusion-Regularization-Images-man_unsplash/man_unsplash/*.* regularization_images/man_unsplash
+
 mkdir training_images
 
 #TODO: move all commands above to a shell script

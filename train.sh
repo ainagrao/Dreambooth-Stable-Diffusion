@@ -13,8 +13,10 @@ class_word=$2 # typical uses are "person", "woman". others to be supported
 # This is the unique token you are incorporating into the stable diffusion model.
 token=$3 # "firstNameLastName"
 
+algo=$4
+
 # This is relevant to class_word e.g person_ddim
-dataset="${class_word}_ddim"
+dataset="${class_word}_${algo}"
 reg_data_root="/workspace/Dreambooth-Stable-Diffusion/regularization_images/${dataset}"
 
 training_images_folder="training_images"
@@ -22,7 +24,7 @@ rm -rf ${training_images_folder}/.ipynb_checkpoints
 rm -f ${training_images_folder}/*
 
 # Download training images from gdrive url
-python dl_training_images.py $4 "${training_images_folder}"
+python dl_training_images.py $5 "${training_images_folder}"
 
 echo "starting training.."
 python main.py \
